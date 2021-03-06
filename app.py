@@ -27,7 +27,7 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Import data
-dataset = pd.read_csv('shot_data.csv')
+dataset = pd.read_csv('./static/data/shot_data.csv')
 
 # Placeholder for raw dataset
 raw = dataset
