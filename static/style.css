@@ -1,0 +1,131 @@
+body
+{
+    background-color: #f5f5f5;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px; 
+    text-align: center;
+    width: 90%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.card {
+    margin-bottom: 24px;
+    box-shadow: 0 0 0.875rem 0 rgb(53 64 82 / 5%);
+}
+
+.card-title {
+    font-size: 1rem;
+    color: #153d77;
+    font-weight: bold;
+}
+
+.card-header {
+    background-color: gold;
+}   
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+.jumbotron{
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+    text-align: center;
+    background-color: #4d0099;
+    color: #fff
+}
+
+#description{
+    max-width: 900px;
+    margin-top: 70px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+}
+.wrapper {
+    max-height: 300px;
+    overflow: auto;
+    border: 1px solid lightgrey;
+    text-align: center;
+}
+tr, td
+{
+    border: 1px solid #000;
+    text-align: center !important;
+    
+}
+table{
+    width: 600px;
+    height: 500px;    
+    border: 1px solid #000;
+    text-align: center;
+}
+th
+{
+    max-width: 250px;
+}
+thead{
+    background-color: darkgrey;
+}
+.w-100 
+{
+    width: 100% !important;
+}
+.flex-fill 
+{
+    flex: 1 1 auto !important;
+}
+.content {
+    padding: 2.5rem 2.5rem 1.5rem;
+    flex: 1;
+}
+.p-0 {
+    padding: 0 !important;
+}
+.main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    min-width: 0;
+    transition: margin-left 0.35s ease-in-out, left 0.35s ease-in-out;
+    flex-direction: column;
+}
+.center 
+{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.header-center {
+    margin-top: 10px;
+}
+
+.carousel-control-next
+{
+    width: 50px;
+}
+
+.carousel-control-prev
+{
+    width: 50px;
+}

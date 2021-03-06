@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, width=device-width">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+      <link rel="stylesheet" type="text/css" href="/static/style.css?ksdfjklsdjkldsjkljflksdj"/>
+      <script src="/static/main.js"></script>
+      <link href="/static/favicon.ico">
+      <link href="/static/lakers.ico" rel=icon>
+      <title>Kobe Bryant Shot Selection Analysis</title>
+   </head>
+   <body>
+      <div class="jumbotron">
+         <h1 class="display-4">Kobe Bryant Shot Analysis</h1>
+         <div id="description" class="container">
+            <p class="lead">In this project, I examine every shot that Kobe Bryant took during his career in order to build his shot profile. The eventual goal of this project is to train a Machine Learning Model to predict whether Kobe would make or miss a shot based on sample data.</p>
+            <div>
+                <p style="font-weight:bold;">-Mamba out</p>
+            </div>
+         </div>
+      </div>
+      <div class="content main">
+         <div class="p-0 container-fluid">
+            <div class="row">
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Data Sample</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <div class="wrapper text-center">
+                              {% for table in tables %}
+                              {{ table|safe }}
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                    <div class="card-header">
+                        <h5 class="mb-0 card-title">About the Data</h5>
+                     </div>
+                     <div class="card-body">
+                         <p style="font-size:1.75rem;" class="text-center">This dataset was taken from Kaggle.com and it is a compilation of every shot that Kobe Bryant took during his 20 year career in the NBA. As you can see, the dataset is quite extensive. I have attempted to analyze and visualize this data in order to better understand Kobe's shot selection.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="d-flex col-lg-12">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Plot of Shots Missed vs Made by Year</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <img style="height: 100%; width: 100%; object-fit: contain" src="/static/img/madeVsMissedShots.png" alt="/static/favicon.ico">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="d-flex col-lg-12">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Plot of Shots by Shot Zone</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <img style="height: 100%; width: 100%; object-fit: contain" src="/static/img/shotZonePlot.png" alt="/static/favicon.ico">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Shot Selection</h5>
+                     </div>
+                     <div class="card-body">
+                        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                           <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                 <img style="height: 100%; width: 100%; object-fit: contain" src="/static/img/pieChartDistance.png" alt="/static/favicon.ico">
+                              </div>
+                              <div class="carousel-item">
+                                 <img style="height: 100%; width: 100%; object-fit: contain" src="/static/img/pieChartLocation.png" alt="/static/favicon.ico">
+                              </div>
+                              <div class="carousel-item">
+                                 <img style="height: 100%; width: 100%; object-fit: contain" src="/static/img/pieChartBasic.png" alt="/static/favicon.ico">
+                              </div>
+                           </div>
+                           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" onclick="$('#carouselExampleIndicators').carousel('prev')" data-bs-slide="prev">
+                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                           <span class="visually-hidden">Prev</span>
+                           </button>
+                           <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" onclick="$('#carouselExampleIndicators').carousel('next')" data-bs-slide="next">
+                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                           <span class="visually-hidden">Next</span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <div class="btn-group float-end" role="group" aria-label="Basic example">
+                           <button type="button" name="shot_zone_range" class="btn btn-primary">Distance</button>
+                           <button type="button" name="shot_zone_area" class="btn btn-primary">Location</button>
+                           <button type="button" name="shot_zone_basic" class="btn btn-primary">Type</button>
+                        </div>
+                        <h5 class="mb-0 card-title header-center">Accuracy by Shot Zone</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <img id="myChart" style="height: 100%; width: 100%; object-fit: contain" src={{chart}} alt="/static/favicon.ico" >
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
