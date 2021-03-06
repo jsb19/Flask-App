@@ -16,15 +16,10 @@ import numpy as np
 import pandas as pd 
 import matplotlib
 matplotlib.use('Agg')
-#from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib.patches import Circle, Rectangle, Arc
 import matplotlib.pyplot as plt 
 import matplotlib.cm as cm
-
-#import seaborn as sns
-
-
 
 app = Flask(__name__)
 

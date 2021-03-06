@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT jjs-cs50-app:app
+web: gunicorn jjs-cs50-app:app
