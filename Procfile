@@ -1,1 +1,1 @@
-web: gunicorn jjs-cs50-app.wsgi --log-file -
+web: gunicorn jjs-cs50-app:app
