@@ -23,6 +23,9 @@ import matplotlib.cm as cm
 
 app = Flask(__name__)
 
+# Ensure templates are auto-reloaded
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
 # Import data
 dataset = pd.read_csv('shot_data.csv')
 
@@ -292,6 +295,4 @@ def home():
         
 
 if __name__ == "__main__":
-    app.jinja_env.auto_reload = True
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
