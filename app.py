@@ -293,6 +293,3 @@ def home():
     
     return render_template("index.html", tables=[table.to_html(index = False, classes='table table-bordered table-striped table-hover', header="true")], titles=table.columns.values, chart = path)
         
-
-if __name__ == "__main__":
-    app.run(debug=True)
