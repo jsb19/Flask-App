@@ -8,9 +8,10 @@ Created on Tue Mar  2 18:25:33 2021
 # Importing flask framework to deploy project
 from flask import Flask, render_template, request, redirect, url_for, session, Response
 import requests
+from time import sleep
+from concurrent.futures import ThreadPoolExecutor
 
 # Importing libraries for data analaysis
-import io
 import random
 import numpy as np 
 import pandas as pd 
@@ -20,6 +21,7 @@ from matplotlib.figure import Figure
 from matplotlib.patches import Circle, Rectangle, Arc
 import matplotlib.pyplot as plt 
 import matplotlib.cm as cm
+
 
 app = Flask(__name__)
 
@@ -276,8 +278,16 @@ def plotAccuracyByZone(zone):
 
     return filePath
 
+
+# DOCS https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor
+executor = ThreadPoolExecutor(1)
+
 @app.route("/")
 def home():
+
+    # Load extensive prediction.py file in background
+    executor.submit(loadFile)
+
     # Create secondary data frame to output as table in order to show some sample data
     table = raw.head(30)
 
@@ -292,4 +302,25 @@ def home():
         path = plotAccuracyByZone("shot_zone_range")
     
     return render_template("index.html", tables=[table.to_html(index = False, classes='table table-bordered table-striped table-hover', header="true")], titles=table.columns.values, chart = path)
-        
+
+
+@app.route("/prediction")
+def prediction():
+
+    if request.method == "GET":
+        # Import data from prediction file
+        from prediction import dataset, featureImportance, newFeatureImportance, rawPredData, predData, accuracy
+
+        encodedData = dataset.head(30)
+
+        rawPredData = rawPredData.head(50)
+
+        predData = predData.head(50)
+
+        return render_template("prediction.html", encodedData=[encodedData.to_html(index = False, classes='table table-bordered table-striped table-hover')], featureImp=[featureImportance.to_html(index = False, classes='table table-bordered table-striped table-hover')], newFeatureImp=[newFeatureImportance.to_html(index = False, classes='table table-bordered table-striped table-hover')],
+        pred=[rawPredData.to_html(index = False, classes='table table-bordered table-striped table-hover')], roundedPred=[predData.to_html(index = False, classes='table table-bordered table-striped table-hover')], result=accuracy)
+
+
+def loadFile():
+    from prediction import accuracy
+    sleep(10)

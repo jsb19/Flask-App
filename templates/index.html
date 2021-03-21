@@ -6,19 +6,41 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-      <link rel="stylesheet" type="text/css" href="/static/style.css?ksdfjklsdjkldsjkljflksdj"/>
+      <link rel="stylesheet" type="text/css" href="/static/style.css?kfjsdklfjkdsljflksj"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="/static/main.js"></script>
       <link href="/static/favicon.ico">
       <link href="/static/lakers.ico" rel=icon>
-      <title>Kobe Bryant Shot Selection Analysis</title>
+      <title>Kobe Bryant Shot Selection Analysis - Visualization</title>
    </head>
+   <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar w-100">
+      <!-- <div class="navbar-nav-scroll"> -->
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+         <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link active" href="/prediction">Shot Predictions</a>
+         </li>
+      </ul>
+      <!-- </div> -->
+      <div class="float-end">
+         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex float-end">
+            <li class="nav-item float-end">
+               <a class="nav-link p-2 float-end" href="https://github.com/jsb19/Flask-App" target="_blank" rel="noopener" aria-label="GitHub">
+               <i class="fa fa-github float-end" style="font-size:36px"></i>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </header>
    <body>
       <div class="jumbotron">
          <h1 class="display-4">Kobe Bryant Shot Analysis</h1>
          <div id="description" class="container">
             <p class="lead">In this project, I examine every shot that Kobe Bryant took during his career in order to build his shot profile. The eventual goal of this project is to train a Machine Learning Model to predict whether Kobe would make or miss a shot based on sample data.</p>
             <div>
-                <p style="font-weight:bold;">-Mamba out</p>
+               <p style="font-weight:bold;">-Mamba out</p>
             </div>
          </div>
       </div>
@@ -43,11 +65,11 @@
                </div>
                <div class="d-flex col-lg-6">
                   <div class="flex-fill w-100 card">
-                    <div class="card-header">
+                     <div class="card-header">
                         <h5 class="mb-0 card-title">About the Data</h5>
                      </div>
                      <div class="card-body">
-                         <p style="font-size:1.75rem;" class="text-center">This dataset was taken from Kaggle.com and it is a compilation of every shot that Kobe Bryant took during his 20 year career in the NBA. As you can see, the dataset is quite extensive. I have attempted to analyze and visualize this data in order to better understand Kobe's shot selection.</p>
+                        <p style="font-size:1.75rem;" class="text-center">This dataset was taken from Kaggle.com and it is a compilation of every shot that Kobe Bryant took during his 20 year career in the NBA. As you can see, the dataset is quite extensive. I have attempted to analyze and visualize this data in order to better understand Kobe's shot selection.</p>
                      </div>
                   </div>
                </div>

@@ -1,4 +1,4 @@
-jQuery(function () {
+ jQuery(function () {
     $('.btn').click(function(event) {
         jQuery.ajax({
             url: '/',

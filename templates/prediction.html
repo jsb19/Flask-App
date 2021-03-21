@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, width=device-width">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+      <link rel="stylesheet" type="text/css" href="/static/style.css?ksdfjklsdjkldsjkljflksdj"/>
+      <script src="/static/main.js"></script>
+      <link href="/static/favicon.ico">
+      <link href="/static/lakers.ico" rel=icon>
+      <title>Kobe Bryant Shot Selection Analysis - Predictions</title>
+   </head>
+   <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar w-100">
+      <!-- <div class="navbar-nav-scroll"> -->
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+         <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link active" href="/prediction">Shot Predictions</a>
+         </li>
+      </ul>
+      <!-- </div> -->
+      <div class="float-end">
+         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex float-end">
+            <li class="nav-item float-end">
+               <a class="nav-link p-2 float-end" href="https://github.com/jsb19/Flask-App" target="_blank" rel="noopener" aria-label="GitHub">
+               <i class="fa fa-github float-end" style="font-size:36px"></i>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </header>
+   <body>
+      <div class="jumbotron">
+         <h1 class="display-4">Kobe Bryant Shot Prediction</h1>
+         <div id="description" class="container">
+            <p class="lead"></p>
+         </div>
+      </div>
+      <div class="content main">
+         <div class="p-0 container-fluid">
+            <div class="row">
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Encoded Dataset</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <div class="wrapper text-center">
+                              {% for table in encodedData %}
+                              {{ table|safe }}
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Data Pre-Processing</h5>
+                     </div>
+                     <div class="card-body">
+                        <p style="font-size:1.75rem;">The very first step in building a model using this data was to process and curate it. Since the data had categorical variables that we cannot directly feed to our model, I encoded them using an ordinalEncoder. As you can see, columns such as "shot_zone_area" no longer contain strings.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Feature Importance</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="card-body">
+                           <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                              <div class="carousel-inner">
+                                 <div class="carousel-item active">
+                                    <h3>Feature Importance</h3>
+                                    <div class="text-center">
+                                       {% for table in featureImp %}
+                                       {{ table|safe }}
+                                       {% endfor %}
+                                    </div>
+                                 </div>
+                                 <div class="carousel-item">
+                                    <h3> Updated Feature Importance</h3>
+                                    <div class="text-center">
+                                       {% for table in newFeatureImp %}
+                                       {{ table|safe }}
+                                       {% endfor %}
+                                    </div>
+                                 </div>
+                                 <div class="carousel-item">
+                                    <img style="height: 100%; width: 100%; object-fit: contain" src="/static/img/featureImportance.png" alt="/static/favicon.ico">
+                                 </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" onclick="$('#carouselExampleIndicators').carousel('prev')" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Prev</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" onclick="$('#carouselExampleIndicators').carousel('next')" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                              </button>
+                           </div>
+                        </div>
+                        <div class="">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex col-lg-6">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Feature Importance</h5>
+                     </div>
+                     <div class="card-body">
+                        <p style="font-size:1.75rem;">After curating the data I decided to use a xgboost classifier algorithm for my model. From here, I decided to optimize my model by getting the importance of each feature to the model</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="d-flex col-lg-4">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Predictions</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <div class="wrapper text-center">
+                              {% for table in pred %}
+                              {{ table|safe }}
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex col-lg-4">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Rounded Predictions</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <div class="wrapper text-center">
+                              {% for table in roundedPred %}
+                              {{ table|safe }}
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex col-lg-4">
+                  <div class="flex-fill w-100 card">
+                     <div class="card-header">
+                        <h5 class="mb-0 card-title">Results</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="">
+                           <p style="font-size:1.75rem;">As you can see, columns such as "shot_zone_area" no longer contain strings.</p>
+                           <p>
+                              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                              View Result
+                              </button>
+                           </p>
+                           <div class="collapse" id="collapseExample">
+                              <div class="alert alert-success" role="alert">
+                                 <h4 class="alert-heading">Model Accuracy:</h4>
+                                 <p></p>
+                                 <hr>
+                                 <h2 class="mb-0">{{result}}</h2>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

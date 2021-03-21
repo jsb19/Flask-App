@@ -28,13 +28,13 @@ body
     box-shadow: 0 0 0.875rem 0 rgb(53 64 82 / 5%);
 }
 
-.card-title {
+.card-title, .nav-link {
     font-size: 1rem;
     color: #153d77;
     font-weight: bold;
 }
 
-.card-header {
+.card-header, header {
     background-color: gold;
 }   
 
@@ -128,4 +128,11 @@ thead{
 .carousel-control-prev
 {
     width: 50px;
+}
+.fa-github
+{
+    color: black;
+}
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    color: black;
 }
