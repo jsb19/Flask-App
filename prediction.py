@@ -9,12 +9,13 @@ Created on Tue Mar  19 23:06:33 2021
 import numpy as np 
 import pandas as pd 
 import matplotlib
+import pickle
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt 
 import seaborn as sns
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.model_selection import train_test_split
-from xgboost import XGBClassifier
+
 
 # Read dataset
 dataset = pd.read_csv('./static/data/shot_data.csv')
@@ -47,8 +48,9 @@ y = dataset.shot_made_flag
 #### Splitting dataset into training and test sets ####
 X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
 
-# Building model using xgboost algorithm
-model = XGBClassifier(n_estimators=20, random_state=71)
+# Use pickle to load in the pre-trained model
+with open(f'model/old_model_xgboost.pkl', 'rb') as f:
+    model = pickle.load(f)
 model.fit(X_train, Y_train)
 
 # Calculating the importance of each feature in the model
@@ -70,8 +72,9 @@ for feat, coeff in zip(featureImportance.Feature, featureImportance.Importance):
 # Recreating training and test sets with low impact features removed
 X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
 
-# Building new model
-newModel = XGBClassifier(n_estimators=20, random_state=71)
+# Use pickle to load in the pre-trained model
+with open(f'model/new_model_xgboost.pkl', 'rb') as f:
+    newModel = pickle.load(f)
 newModel.fit(X_train, Y_train)
 
 # Creating new dataframe for feature importance based on new model
@@ -112,6 +115,7 @@ predData = pd.DataFrame({'shot_id':X_test['shot_id'], 'shot_made_flag':roundedPr
 def modelAccuracy():
     countTrue = 0
     for index, row in predData.iterrows():
+        temp = index
         if dataset.loc[dataset['shot_id'] == row["shot_id"]]["shot_made_flag"].item() == row["shot_made_flag"]:
             countTrue+=1
     return round(countTrue/len(predData) * 100, 2)
