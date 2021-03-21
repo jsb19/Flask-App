@@ -16,6 +16,7 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
+
 # Read dataset
 dataset = pd.read_csv('./static/data/shot_data.csv')
 
