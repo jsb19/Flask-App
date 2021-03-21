@@ -112,6 +112,7 @@ predData = pd.DataFrame({'shot_id':X_test['shot_id'], 'shot_made_flag':roundedPr
 def modelAccuracy():
     countTrue = 0
     for index, row in predData.iterrows():
+        temp = index
         if dataset.loc[dataset['shot_id'] == row["shot_id"]]["shot_made_flag"].item() == row["shot_made_flag"]:
             countTrue+=1
     return round(countTrue/len(predData) * 100, 2)
