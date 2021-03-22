@@ -1,1 +1,1 @@
-web: gunicorn jjs-cs50-app:app
+web: gunicorn jj-shotprediction-app:app
