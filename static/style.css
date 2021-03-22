@@ -3,7 +3,8 @@ body
     background-color: #f5f5f5;
 }
 
-.container {
+.container
+{
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
@@ -12,39 +13,46 @@ body
     width: 90%;
 }
 
-.row {
+.row 
+{
     display: flex;
     flex-wrap: wrap;
     margin-right: -12px;
     margin-left: -12px;
 }
 
-.d-flex {
+.d-flex
+{
     display: flex !important;
 }
 
-.card {
+.card
+{
     margin-bottom: 24px;
     box-shadow: 0 0 0.875rem 0 rgb(53 64 82 / 5%);
 }
 
-.card-title, .nav-link {
+.card-title, .nav-link
+{
     font-size: 1rem;
     color: #153d77;
     font-weight: bold;
 }
 
-.card-header, header {
-    background-color: gold;
+.card-header, header
+{
+    background-color: #FFBD33;
 }   
 
-.card-body {
+.card-body
+{
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
 }
 
-.jumbotron{
+.jumbotron
+{
     padding: 2rem 1rem;
     margin-bottom: 2rem;
     border-radius: .3rem;
@@ -53,7 +61,8 @@ body
     color: #fff
 }
 
-#description{
+#description
+{
     max-width: 900px;
     margin-top: 70px;
 }
@@ -62,47 +71,58 @@ h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
 }
+
 .wrapper {
     max-height: 300px;
     overflow: auto;
     border: 1px solid lightgrey;
     text-align: center;
 }
+
 tr, td
 {
     border: 1px solid #000;
     text-align: center !important;
     
 }
+
 table{
     width: 600px;
     height: 500px;    
     border: 1px solid #000;
     text-align: center;
 }
+
 th
 {
     max-width: 250px;
 }
+
 thead{
     background-color: darkgrey;
 }
+
 .w-100 
 {
     width: 100% !important;
 }
+
 .flex-fill 
 {
     flex: 1 1 auto !important;
 }
+
 .content {
     padding: 2.5rem 2.5rem 1.5rem;
     flex: 1;
 }
+
 .p-0 {
     padding: 0 !important;
 }
-.main {
+
+.main 
+{
     display: flex;
     width: 100%;
     min-height: 100vh;
@@ -116,7 +136,8 @@ thead{
     margin: 0 auto;
 }
 
-.header-center {
+.header-center
+{
     margin-top: 10px;
 }
 
@@ -133,6 +154,7 @@ thead{
 {
     color: black;
 }
-.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link
+{
     color: black;
 }
