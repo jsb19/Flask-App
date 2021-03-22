@@ -38,7 +38,7 @@
       <div class="jumbotron">
          <h1 class="display-4">Kobe Bryant Shot Prediction</h1>
          <div id="description" class="container">
-            <p class="lead"></p>
+            <p class="lead">I use machine learning to try and predict whether Kobe makes or misses his shot.</p>
          </div>
       </div>
       <div class="content main">
@@ -66,7 +66,7 @@
                         <h5 class="mb-0 card-title">Data Pre-Processing</h5>
                      </div>
                      <div class="card-body">
-                        <p style="font-size:1.75rem;">The very first step in building a model using this data was to process and curate it. Since the data had categorical variables that we cannot directly feed to our model, I encoded them using an ordinalEncoder. As you can see, columns such as "shot_zone_area" no longer contain strings.</p>
+                        <p style="font-size:1.75rem;">The very first step in building a model using this data was to process and curate it. Since the data had categorical variables that we cannot directly feed to our model, I encoded them using an <i>ordinalEncoder</i>. As you can see, columns such as "shot_zone_area" no longer contain strings.</p>
                      </div>
                   </div>
                </div>
@@ -122,7 +122,10 @@
                         <h5 class="mb-0 card-title">Feature Importance</h5>
                      </div>
                      <div class="card-body">
-                        <p style="font-size:1.75rem;">After curating the data I decided to use a xgboost classifier algorithm for my model. From here, I decided to optimize my model by getting the importance of each feature to the model</p>
+                        <p style="font-size:1.75rem;">After curating the data I decided to use a xgboost classifier algorithm for my model. The reason I choose this algorith is because it allows for parallel computation and uses a gradient boosting framework. Since I am presenting the findings via a website, speed is paramount. Once I built the model, I decided to optimize it by getting the importance of each feature to the model. I dropped all features that had a coefficient of importance less than 2.5 and created a new model.</p>
+                        <div class="">
+                           <img style="height: 100%; width: 100%; object-fit: contain" src="/static/img/buildingModelCodeSnippet.png" alt="/static/favicon.ico">
+                        </div>
                      </div>
                   </div>
                </div>
@@ -167,7 +170,7 @@
                      </div>
                      <div class="card-body">
                         <div class="">
-                           <p style="font-size:1.75rem;">As you can see, columns such as "shot_zone_area" no longer contain strings.</p>
+                           <p style="font-size:1.75rem;">The last piece of this project was to superimpose the predections from my test set with the actual results to measure the accuracy of my model. Being fairly new to data science, I am curious to see whether different models or tweaks to my current model will affect the accuracy. Hopefully, I'll be updating this website with my findings soon!</p>
                            <p>
                               <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                               View Result

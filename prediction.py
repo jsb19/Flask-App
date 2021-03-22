@@ -17,7 +17,6 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.model_selection import train_test_split
 
 
-
 # Read dataset
 dataset = pd.read_csv('./static/data/shot_data.csv')
 
@@ -57,7 +56,7 @@ model.fit(X_train, Y_train)
 # Calculating the importance of each feature in the model
 def featImp(model):
     coeffImp = model.feature_importances_
-    coeffImp = [round(i,2) * 100 for i in coeffImp]
+    coeffImp = [float("{:.2f}".format(i * 100)) for i in coeffImp]
     return coeffImp
 
 featureImportance = pd.DataFrame(
@@ -116,7 +115,6 @@ predData = pd.DataFrame({'shot_id':X_test['shot_id'], 'shot_made_flag':roundedPr
 def modelAccuracy():
     countTrue = 0
     for index, row in predData.iterrows():
-        temp = index
         if dataset.loc[dataset['shot_id'] == row["shot_id"]]["shot_made_flag"].item() == row["shot_made_flag"]:
             countTrue+=1
     return round(countTrue/len(predData) * 100, 2)

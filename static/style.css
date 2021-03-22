@@ -67,12 +67,14 @@ body
     margin-top: 70px;
 }
 
-h1 {
+h1 
+{
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
 }
 
-.wrapper {
+.wrapper 
+{
     max-height: 300px;
     overflow: auto;
     border: 1px solid lightgrey;
@@ -86,7 +88,8 @@ tr, td
     
 }
 
-table{
+table
+{
     width: 600px;
     height: 500px;    
     border: 1px solid #000;
@@ -98,7 +101,8 @@ th
     max-width: 250px;
 }
 
-thead{
+thead
+{
     background-color: darkgrey;
 }
 
@@ -112,12 +116,14 @@ thead{
     flex: 1 1 auto !important;
 }
 
-.content {
+.content 
+{
     padding: 2.5rem 2.5rem 1.5rem;
     flex: 1;
 }
 
-.p-0 {
+.p-0 
+{
     padding: 0 !important;
 }
 
