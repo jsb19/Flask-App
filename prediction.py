@@ -57,7 +57,7 @@ model.fit(X_train, Y_train)
 def featImp(model):
     coeffImp = model.feature_importances_
     coeffImp = [float("{:.2f}".format(i * 100)) for i in coeffImp]
-    return coeffImp
+    return coeffImp 
 
 featureImportance = pd.DataFrame(
     {'Feature': X_train.columns.values,
