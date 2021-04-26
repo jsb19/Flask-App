@@ -14,4 +14,4 @@ Libraries  used:
 - scikit-learn/XGBClassifier (for ML)
 
 
-I downloaded data from Kaggle that included every shot that Kobe Bryant ook in his career. I then used Python libraries such as numpy and pandas to curate and clean the data. Then I used the matplotlib library from Python to plot the data in a manner that would make it easy to visualize Kobe's shot selection. This Flask webapp also includes a JavaScript component since I wanted to add asynchronous loading of certain plots via AJAX calls.
+I downloaded data from Kaggle that included every shot that Kobe Bryant ook in his career. I used Python libraries such as numpy and pandas to curate and clean the data. Then I used the matplotlib library from Python to plot the data in a manner that would make it easy to visualize Kobe's shot selection. This Flask webapp also includes a JavaScript component since I wanted to add asynchronous loading of certain plots via AJAX calls.
